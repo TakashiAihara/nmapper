@@ -76,3 +76,35 @@ export interface SubnetInfo {
   deviceCount: number
   activeDevices: number
 }
+
+// Monitoring service types
+export interface MonitoringMetrics {
+  uptime: number
+  totalScans: number
+  totalDevices: number
+  activeSchedules: number
+  lastScanTime?: number
+  scanErrors: number
+  averageScanDuration: number
+}
+
+export interface HealthStatus {
+  status: 'healthy' | 'degraded' | 'unhealthy'
+  timestamp: number
+  components: ComponentHealth[]
+}
+
+export interface ComponentHealth {
+  name: string
+  healthy: boolean
+  status: string
+  lastCheck?: number
+  message?: string
+}
+
+export interface ScanRequest {
+  networkRange: string
+  scanType?: 'discovery' | 'comprehensive' | 'quick'
+  ports?: string
+  timeout?: number
+}

@@ -23,3 +23,11 @@ export {
   getConfig,
   findConfigFile
 } from './loader.js'
+
+// Import configManager
+import { configManager } from './manager.js'
+
+// Factory function for convenience
+export function createConfiguration(options?: { configPath?: string }) {
+  return configManager
+}
