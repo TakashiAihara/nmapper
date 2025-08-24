@@ -2,42 +2,52 @@
 
 export interface Device {
   ip: string
-  mac: string
+  mac?: string
   hostname?: string
   vendor?: string
+  deviceType?: string
   osInfo?: OSInfo
   responseTime?: number
-  ports: Port[]
-  services: Service[]
+  ports?: Port[]
+  services?: Service[]
   lastSeen: Date
+  uptimeSeconds?: number
   isActive: boolean
+  riskLevel?: 'low' | 'medium' | 'high'
+  notes?: string
+  fingerprint?: string
 }
 
 export interface Port {
   number: number
   protocol: 'tcp' | 'udp'
   state: 'open' | 'closed' | 'filtered'
-  service?: string
-  version?: string
-  product?: string
+  serviceName?: string
+  serviceVersion?: string
+  banner?: string
+  tunnel?: string
+  method?: string
+  confidence?: number
 }
 
 export interface Service {
   port: number
   name: string
+  protocol: 'tcp' | 'udp'
   product?: string
   version?: string
   extraInfo?: string
-  confidence: number
+  confidence?: number
 }
 
 export interface OSInfo {
   name?: string
+  version?: string
   family?: string
   generation?: string
   type?: string
   vendor?: string
-  accuracy: number
+  accuracy?: number
 }
 
 // Network topology and mapping

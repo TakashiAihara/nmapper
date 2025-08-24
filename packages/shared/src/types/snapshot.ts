@@ -1,4 +1,4 @@
-import type { Device } from './network.js'
+import type { Device, Service } from './network.js'
 
 // Network snapshot and versioning interfaces
 export interface NetworkSnapshot {
@@ -49,8 +49,8 @@ export interface PortDiff {
 export interface ServiceDiff {
   port: number
   changeType: 'added' | 'removed' | 'version_changed'
-  oldService?: Device['services'][0]
-  newService?: Device['services'][0]
+  oldService?: Service
+  newService?: Service
 }
 
 export interface PropertyChange {
