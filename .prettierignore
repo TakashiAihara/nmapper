@@ -1,0 +1,8 @@
+dist/
+node_modules/
+coverage/
+*.min.js
+*.map
+.env*
+pnpm-lock.yaml
+package-lock.json
