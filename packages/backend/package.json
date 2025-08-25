@@ -5,7 +5,8 @@
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "nmapper": "dist/cli.js"
+    "nmapper": "dist/cli.js",
+    "nmapper-server": "dist/main.js"
   },
   "scripts": {
     "dev": "tsx watch src/cli.ts",
